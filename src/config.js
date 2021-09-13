@@ -16,6 +16,13 @@ const nodeFetchOptions = {
   agent: false,
 };
 
+const axiosOptions = {
+  headers: {
+    'user-agent': `${name}/${version}`,
+  },
+  timeout: 30 * 1e3
+};
+
 const sanitizeHtmlOptions = {
   allowedTags: [
     'h1', 'h2', 'h3', 'h4', 'h5',
@@ -51,6 +58,9 @@ module.exports = {
   },
   getNodeFetchOptions: () => {
     return clone(nodeFetchOptions);
+  },
+  getAxiosOptions: () => {
+    return clone(axiosOptions);
   },
   getSanitizeHtmlOptions: () => {
     return clone(sanitizeHtmlOptions);
